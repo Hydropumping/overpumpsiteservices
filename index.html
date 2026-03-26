@@ -30,6 +30,7 @@
       color: var(--text);
       background: #f5fbff;
       line-height: 1.6;
+      text-align: center;
     }
 
     img { max-width: 100%; display: block; }
@@ -297,6 +298,11 @@
 
     .panel ul,
     .service ul {
+      text-align: left;
+    }
+
+    .panel ul,
+    .service ul {
       margin: 16px 0 0;
       padding-left: 20px;
       color: var(--muted);
@@ -361,15 +367,96 @@
       border-radius: 18px;
       background: #eef8ff;
       border: 1px solid rgba(10, 58, 90, 0.08);
+      color: #0a3a5a;
     }
 
     .contact-item strong {
       display: block;
       margin-bottom: 4px;
-      color: var(--navy);
+      color: #0a3a5a;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+    }
+
+    .service,
+    .gallery-card,
+    .panel,
+    .value-card,
+    .contact-item,
+    .hero-card,
+    .btn,
+    .nav-cta {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .service:hover,
+    .gallery-card:hover,
+    .panel:hover,
+    .value-card:hover,
+    .contact-item:hover,
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(9, 44, 69, 0.16);
+    }
+
+    .quote-form-wrap {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 30px;
+    }
+
+    .quote-form {
+      text-align: left;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.96);
+      color: #0a3a5a;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+      outline: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #6e8596;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--blue-soft);
+      box-shadow: 0 0 0 4px rgba(121, 199, 244, 0.18);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
     }
 
     footer {
@@ -397,6 +484,10 @@
       }
 
       .hero-card img { height: 340px; }
+    }
+
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -627,24 +718,56 @@
     </section>
 
     <section id="contact" class="dark-band">
-      <div class="container" style="text-align:center; max-width:800px;">
-        <h2 class="section-title">REQUEST A QUOTE</h2>
-        <p class="section-copy" style="margin-bottom:30px;">
-          Speak with Overpump Site Services Ltd about your next project. Whether you need temporary bypass pumping, dewatering, or full site water management, we’ll provide a clear and reliable solution tailored to your site.
-        </p>
+      <div class="container" style="max-width:980px;">
+        <div class="section-head" style="margin-left:auto; margin-right:auto;">
+          <h2 class="section-title">REQUEST A QUOTE</h2>
+          <p class="section-copy" style="margin-bottom:30px;">
+            Speak with Overpump Site Services Ltd about your next project. Whether you need temporary bypass pumping, dewatering, or full site water management, we’ll provide a clear and reliable solution tailored to your site.
+          </p>
+        </div>
 
-        <div class="contact-list" style="text-align:left;">
-          <div class="contact-item">
-            <strong>Phone</strong>
-            <div>(555) 123-4567</div>
-          </div>
-          <div class="contact-item">
-            <strong>Email</strong>
-            <div>info@overpumpsiteservices.com</div>
-          </div>
-          <div class="contact-item">
-            <strong>Service Area</strong>
-            <div>Add your service area here</div>
+        <div class="quote-form-wrap">
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" type="text" placeholder="Company name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" placeholder="Phone number" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Project Details</label>
+              <textarea id="message" placeholder="Tell us about the site, the scope of works, and the support you need."></textarea>
+            </div>
+            <div class="btn-row" style="justify-content:center; margin-bottom:0;">
+              <button class="btn btn-primary" type="button">Submit Enquiry</button>
+            </div>
+          </form>
+
+          <div class="contact-list" style="text-align:left; margin-top:24px;">
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <div>(555) 123-4567</div>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <div>info@overpumpsiteservices.com</div>
+            </div>
+            <div class="contact-item">
+              <strong>Service Area</strong>
+              <div>Add your service area here</div>
+            </div>
           </div>
         </div>
       </div>
