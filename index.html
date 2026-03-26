@@ -563,7 +563,46 @@
       .cta-panel,
       .value-card { padding: 24px; }
     }
-  </style>
+/* FIX DARK SECTION CARDS (top section) */
+.value-card {
+  background: rgba(255,255,255,0.16); /* stronger contrast */
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 22px;
+  padding: 26px;
+  color: white;
+}
+
+.value-card h3 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.value-card p {
+  color: #d6ecff; /* brighter light blue */
+  text-align: center;
+}
+
+/* FIX WHITE PANELS (bottom section) */
+.panel {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 34px;
+  color: #0a3a5a;
+}
+
+.panel h3 {
+  color: #0a3a5a;
+}
+
+.panel p {
+  color: #fffff; /* darker for readability */
+}
+
+/* REMOVE THAT BLUE HIGHLIGHT STRIP */
+.panel h3 span {
+  background: none !important;
+  color: #0a3a5a !important;
+}  </style>
 </head>
 <body>
   <header>
