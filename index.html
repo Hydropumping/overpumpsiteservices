@@ -1,40 +1,836 @@
-/* FIX DARK SECTION CARDS (top section) */
-.value-card {
-  background: rgba(255,255,255,0.16); /* stronger contrast */
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 22px;
-  padding: 26px;
-  color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overpump Site Services Ltd</title>
+  <meta name="description" content="Overpump Site Services Ltd delivers temporary bypass pumping, dewatering, water management, and emergency site support for construction, civil, and utility projects." />
+  <style>
+    :root {
+      --navy: #0a3a5a;
+      --navy-deep: #072b43;
+      --blue: #79c7f4;
+      --blue-soft: #a8dbfb;
+      --sky: #eef8ff;
+      --white: #ffffff;
+      --text: #17364d;
+      --muted: #5d7687;
+      --border: rgba(10, 58, 90, 0.1);
+      --shadow: 0 22px 55px rgba(9, 44, 69, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --max: 1180px;
+    }
 
-.value-card h3 {
-  color: #ffffff;
-  text-align: center;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f5fbff;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-.value-card p {
-  color: #d6ecff; /* brighter light blue */
-  text-align: center;
-}
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-/* FIX WHITE PANELS (bottom section) */
-.panel {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 34px;
-  color: #0a3a5a;
-}
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-.panel h3 {
-  color: #0a3a5a;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(10, 58, 90, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-.panel p {
-  color: #4f6f82; /* darker for readability */
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
 
-/* REMOVE THAT BLUE HIGHLIGHT STRIP */
-.panel h3 span {
-  background: none !important;
-  color: #0a3a5a !important;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: white;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: rgba(255,255,255,0.92);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(8, 47, 74, 0.96), rgba(12, 90, 141, 0.88)),
+        radial-gradient(circle at top right, rgba(168, 219, 251, 0.22), transparent 30%);
+      color: white;
+      padding: 74px 0 88px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-grid > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 auto 18px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.97;
+      letter-spacing: -0.045em;
+      max-width: 700px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-copy {
+      margin: 0 auto 28px;
+      max-width: 680px;
+      font-size: 20px;
+      color: rgba(255,255,255,0.88);
+      text-align: center;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 2px solid transparent;
+      transition: transform .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-soft));
+      color: #08324f;
+    }
+
+    .btn-secondary {
+      color: white;
+      border-color: rgba(255,255,255,0.34);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .point {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 700;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 22px;
+      margin-bottom: 18px;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.84);
+      font-size: 17px;
+    }
+
+    section { padding: 86px 0; }
+
+    /* ABOUT SECTION DARK PREMIUM STYLE */
+    #about {
+      background: linear-gradient(180deg, #0b3f63 0%, #0e577f 100%);
+      color: white;
+    }
+
+    #about .section-title {
+      color: white;
+    }
+
+    #about .section-copy {
+      color: #a8dbfb;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 50px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .section-copy {
+      margin: 0;
+      font-size: 18px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .two-col,
+    .service-grid,
+    .gallery-grid,
+    .contact-grid,
+    .value-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .two-col { grid-template-columns: 1fr 1fr; }
+    .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 520px));
+      justify-content: center;
+    }
+    .contact-grid { grid-template-columns: 1fr; }
+    .value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .panel,
+    .service,
+    .gallery-card,
+    .contact-panel,
+    .cta-panel,
+    .value-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .panel,
+    .service,
+    .contact-panel,
+    .cta-panel,
+    .value-card {
+      padding: 30px;
+    }
+
+    .panel h3,
+    .service h3,
+    .gallery-card h3,
+    .contact-panel h3,
+    .cta-panel h3,
+    .value-card h3 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .panel p,
+    .service p,
+    .gallery-card p,
+    .contact-panel p,
+    .cta-panel p,
+    .value-card p,
+    .panel li,
+    .service li {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .panel p,
+    .service p,
+    .gallery-card p,
+    .contact-panel p,
+    .cta-panel p,
+    .value-card p {
+      text-align: center;
+    }
+
+    .panel ul,
+    .service ul {
+      text-align: left;
+    }
+
+    .panel ul,
+    .service ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .panel li + li,
+    .service li + li { margin-top: 8px; }
+
+    .service {
+      background: linear-gradient(180deg, #ffffff, #f4fbff);
+    }
+
+    .service img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .gallery-copy {
+      padding: 24px;
+    }
+
+    .dark-band {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      /* Premium layered background */
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(168,219,251,0.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 80%, rgba(121,199,244,0.14), transparent 60%),
+        linear-gradient(135deg, #082d47 0%, #0b4770 55%, #0c5a8d 100%);
+      color: white;
+    }
+      background: linear-gradient(135deg, #082d47, #0b4770 65%, #0c5a8d);
+      color: white;
+    }
+
+    .dark-band .section-copy,
+    .dark-band .value-card p,
+    .dark-band .cta-panel p {
+      color: rgba(255,255,255,0.82);
+    }
+
+    .dark-band .value-card,
+    .dark-band .cta-panel {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: none;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #eef8ff;
+      border: 1px solid rgba(10, 58, 90, 0.08);
+      color: #0a3a5a;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #0a3a5a;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .service,
+    .gallery-card,
+    .panel,
+    .value-card,
+    .contact-item,
+    .hero-card,
+    .btn,
+    .nav-cta {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .service:hover,
+    .gallery-card:hover,
+    .panel:hover,
+    .value-card:hover,
+    .contact-item:hover,
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(9, 44, 69, 0.16);
+    }
+
+    .quote-form-wrap {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 30px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .quote-form {
+      text-align: left;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.96);
+      color: #0a3a5a;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+      outline: none;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #6e8596;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--blue-soft);
+      box-shadow: 0 0 0 4px rgba(121, 199, 244, 0.18);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.72);
+      padding: 28px 0 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .two-col,
+      .service-grid,
+      .gallery-grid,
+      .contact-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card img { height: 340px; }
+    }
+
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero { padding: 54px 0 72px; }
+      h1 { font-size: clamp(38px, 12vw, 58px); }
+      .hero-copy { font-size: 18px; }
+      .hero-points { grid-template-columns: 1fr; }
+      section { padding: 70px 0; }
+      .section-copy { font-size: 17px; }
+      .panel,
+      .service,
+      .contact-panel,
+      .cta-panel,
+      .value-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <img src="OVERPUMP.png" alt="Overpump Site Services Ltd logo" />
+        <span>Overpump Site Services Ltd</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Request Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Temporary Pumping • Dewatering • Site Water Control</span>
+        <h1>Premium Pumping Support For Critical Site Operations.</h1>
+        <p class="hero-copy">
+          Overpump Site Services Ltd supports construction, civil, utility, and infrastructure teams with dependable temporary pumping, bypass setups, dewatering, and controlled water management. The goal is straightforward: keep the site moving, reduce disruption, and maintain a clean, professional standard of execution.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact">Request A Quote</a>
+          <a class="btn btn-secondary" href="#projects">View Project Photos</a>
+        </div>
+        <div class="hero-points">
+          <div class="point">Temporary pumping solutions for active sites</div>
+          <div class="point">Clean, controlled support during critical phases</div>
+          <div class="point">Reliable service across construction and utility work</div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <img src="OVERPUMP3.png" alt="Bypass pumping on an active site" />
+        <h2>Built For Real Work</h2>
+        <p>
+          From bypass pumping during construction to controlled water movement and dewatering support, our work is focused on practical site performance, safe access, and steady project progress.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Professional Pumping Solutions With A Sharper Standard.</h2>
+          <p class="section-copy">
+            Over-pumping can refer to groundwater extraction that exceeds natural recharge, or to engineered temporary pumping used to divert water or sewage during active construction. Our focus is the second: practical, dependable pumping support that protects schedules, maintains access, and supports cleaner project delivery.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <article class="panel">
+            <h3>Site-Focused Execution</h3>
+            <p>
+              We support pumping operations where timing, site access, and performance matter. From interior facility environments to external civil and infrastructure work, we help teams maintain control through disciplined water handling.
+            </p>
+            <ul>
+              <li>Temporary bypass pumping during maintenance and upgrades</li>
+              <li>Dewatering support for excavation and below-grade work</li>
+              <li>Managed water diversion to protect active work zones</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Why Owners And Contractors Care</h3>
+            <p>
+              Poor water management can create delays, access problems, sediment issues, and unnecessary site risk. Premium support is not simply about moving water. It is about protecting the workflow around it.
+            </p>
+            <ul>
+              <li>Cleaner execution and stronger coordination on site</li>
+              <li>Reduced disruption to surrounding systems and operations</li>
+              <li>More controlled outcomes during critical project phases</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-band">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Why This Version Feels More Premium.</h2>
+          <p class="section-copy">
+            The strongest contractor websites do not overdesign. They stay disciplined. Strong spacing, restrained imagery, clear hierarchy, and professional copy do more for credibility than flashy layouts.
+          </p>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Cleaner Visual Hierarchy</h3>
+            <p>One strong hero composition creates focus instead of competing with multiple layouts at once.</p>
+          </article>
+          <article class="value-card">
+            <h3>Sharper Service Positioning</h3>
+            <p>The copy reads like a capable field operator rather than a generic template or startup landing page.</p>
+          </article>
+          <article class="value-card">
+            <h3>Better Client Confidence</h3>
+            <p>Real project imagery, clear sections, and a more restrained presentation help the business feel established and credible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Core Services</h2>
+          <p class="section-copy">
+            We focus on field-ready pumping support for contractors, utilities, industrial sites, and infrastructure projects that require dependable temporary systems and controlled water management.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service">
+            <img src="OVERPUMP3.png" alt="Temporary bypass pumping on an outdoor site" />
+            <h3>Temporary Bypass Pumping</h3>
+            <p>Short-term pumping systems for sewer, stormwater, and flow diversion during repair, shutdown, maintenance, and active construction work.</p>
+            <ul>
+              <li>Temporary diversion around work zones</li>
+              <li>Support for maintenance and system upgrades</li>
+              <li>Operational continuity during critical site phases</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <img src="OVERPUMP1.png" alt="Interior pumping hose and controlled water handling" />
+            <h3>Dewatering Support</h3>
+            <p>Water removal solutions that help maintain dry, workable conditions for excavation, trenching, slab work, pits, and below-grade operations.</p>
+            <ul>
+              <li>Improved access and cleaner working conditions</li>
+              <li>Support for schedule-sensitive phases</li>
+              <li>Better site control during wet conditions</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <img src="OVERPUMP2.png" alt="Industrial water management pipe system" />
+            <h3>Site Water Management</h3>
+            <p>Planning and execution support for controlling water movement, minimizing disruption, and protecting active work areas and infrastructure.</p>
+            <ul>
+              <li>Controlled handling of temporary flows</li>
+              <li>Protection of adjacent site operations</li>
+              <li>Cleaner, more coordinated field execution</li>
+            </ul>
+          </article>
+
+          <article class="service">
+            <img src="OVERPUMP4.png" alt="High-volume water discharge in the field" />
+            <h3>Emergency Pumping Response</h3>
+            <p>Rapid support for urgent pumping needs where flooding, downtime, access loss, or active utility conditions demand fast action.</p>
+            <ul>
+              <li>Fast deployment mindset</li>
+              <li>Support for active problem conditions</li>
+              <li>Focused on restoring site control quickly</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" style="background: linear-gradient(180deg, #f7fbff 0%, #eef8ff 100%);">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Project Visuals</h2>
+          <p class="section-copy">
+            These photos are presented as selected project visuals rather than a collage. The result is cleaner, more deliberate, and more consistent with a premium contractor presentation.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <img src="OVERPUMP1.png" alt="Large pumping hose on a finished interior site floor" />
+            <div class="gallery-copy">
+              <h3>Interior Facility Pumping</h3>
+              <p>Clean interior setups require coordination, control, and a professional standard around active equipment and sensitive work areas.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="OVERPUMP2.png" alt="Industrial pipe and pumping system" />
+            <div class="gallery-copy">
+              <h3>Industrial Flow Systems</h3>
+              <p>Large-scale pipework and water transfer infrastructure demand dependable temporary solutions and disciplined site management.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="OVERPUMP3.png" alt="Bypass pumping on an outdoor construction site" />
+            <div class="gallery-copy">
+              <h3>Bypass Pumping In The Field</h3>
+              <p>Exterior civil work often depends on temporary pumping systems that protect access, maintain progress, and control water in real time.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="OVERPUMP4.png" alt="High-volume water discharge in the field" />
+            <div class="gallery-copy">
+              <h3>Water Movement And Discharge</h3>
+              <p>High-volume water control needs the right setup, clear planning, and disciplined execution to support the surrounding operation.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="dark-band">
+      <div class="container" style="max-width:980px;">
+        <div class="section-head" style="margin-left:auto; margin-right:auto;">
+          <h2 class="section-title">REQUEST A QUOTE</h2>
+          <p class="section-copy" style="margin-bottom:30px;">
+            Speak with Overpump Site Services Ltd about your next project. Whether you need temporary bypass pumping, dewatering, or full site water management, we’ll provide a clear and reliable solution tailored to your site.
+          </p>
+        </div>
+
+        <div class="quote-form-wrap">
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" type="text" placeholder="Company name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" placeholder="Phone number" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Project Details</label>
+              <textarea id="message" placeholder="Tell us about the site, the scope of works, and the support you need."></textarea>
+            </div>
+            <div class="btn-row" style="justify-content:center; margin-bottom:0;">
+              <button class="btn btn-primary" type="button">Submit Enquiry</button>
+            </div>
+          </form>
+
+          <div class="contact-list" style="text-align:left; margin:24px auto 0; max-width:920px;">
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <div>(555) 123-4567</div>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <div>info@overpumpsiteservices.com</div>
+            </div>
+            <div class="contact-item">
+              <strong>Service Area</strong>
+              <div>Add your service area here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Overpump Site Services Ltd. All rights reserved.</div>
+      <div>Designed for GitHub Pages hosting.</div>
+    </div>
+  </footer>
+</body>
+</html>
