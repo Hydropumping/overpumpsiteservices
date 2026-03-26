@@ -228,4 +228,198 @@
 </footer>
 
 </body>
+</html>      font-weight: bold;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #cfe8f5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 30px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: #6fc1f2;
+      color: black;
+    }
+
+    .secondary {
+      border: 2px solid white;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 25px;
+    }
+
+    section {
+      padding: 60px 0;
+      background: white;
+      color: #123;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #f5fbff;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    footer {
+      background: #082f4a;
+      padding: 30px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    @media(max-width: 900px){
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .services, .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="OVERPUMP.png">
+      <strong>OVERPUMP SITE SERVICES LTD</strong>
+    </div>
+    <nav>
+      <a href="#">ABOUT</a>
+      <a href="#">SERVICES</a>
+      <a href="#">PROJECTS</a>
+      <a href="#">CONTACT</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>Premium Pumping Support For Critical Site Operations</h1>
+      <p>
+        Overpump Site Services Ltd supports construction, civil, and infrastructure projects with reliable temporary pumping, 
+        dewatering, and water control. Our focus is simple — keep sites moving, reduce disruption, and deliver clean, controlled results.
+      </p>
+
+      <div class="buttons">
+        <span class="btn primary">REQUEST A QUOTE</span>
+        <span class="btn secondary">VIEW PROJECTS</span>
+      </div>
+    </div>
+
+    <img src="OVERPUMP3.png">
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2>SERVICES</h2>
+
+    <div class="services">
+      <div class="card">
+        <img src="OVERPUMP3.png">
+        <h3>TEMPORARY BYPASS PUMPING</h3>
+        <p>Short-term pumping systems to maintain flow and keep work areas operational during maintenance or construction.</p>
+      </div>
+
+      <div class="card">
+        <img src="OVERPUMP1.png">
+        <h3>DEWATERING</h3>
+        <p>Reliable water removal to maintain safe, dry working conditions across excavation and site operations.</p>
+      </div>
+
+      <div class="card">
+        <img src="OVERPUMP2.png">
+        <h3>WATER MANAGEMENT</h3>
+        <p>Controlled handling of site water to reduce disruption and maintain efficient project workflows.</p>
+      </div>
+
+      <div class="card">
+        <img src="OVERPUMP4.png">
+        <h3>EMERGENCY RESPONSE</h3>
+        <p>Rapid deployment pumping solutions to regain control of site conditions and prevent delays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>PROJECT VISUALS</h2>
+
+    <div class="gallery">
+      <img src="OVERPUMP1.png">
+      <img src="OVERPUMP2.png">
+      <img src="OVERPUMP3.png">
+      <img src="OVERPUMP4.png">
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Overpump Site Services Ltd
+</footer>
+
+</body>
 </html>
